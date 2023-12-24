@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+
+
+     {{course.description|truncatewords:155}}
+
+
+{% endblock %}
+
+{% block title %}
+ {% if department %}
+
+     {{ course.name}} --Education
+
+  {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+<div class="row my_cour_row_class">
+    <div class="mx_auto">
+        <p><a href="{% url 'college:allCourDep' %}" >Home </a> | <a href="{{course.department.get_url}}">{{course.department}}</a> </p>
+    </div>
+</div>
+<div class="container">
+
+<br>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-md-12 col-lg-12 ">
+        <div style="min-width:18rem;">
+            <img src="{{course.image.url}}" alt="{{courses.name}}">
+        </div>
+    </div>
+    <div>
+        <div class="col-md-12 col-sm12 col-md-12 col-lg-12">
+            <h1 class="my_cour_title">{{course.name}}</h1>
+            <p>Rs  {{course.fee}}</p>
+            <p>Courses</p>
+            <p class="text-justify my_cour_text">{{course.description}}</p>
+            {% if course.seats <= 0 %}
+            <p> Seats are full</p>
+            {% else %}
+            <a href=""></a>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

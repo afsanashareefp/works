@@ -1,0 +1,131 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Information</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="personal-info">
+        <h1>Personal Information</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+
+
+            <label for="first" >Department:</label>
+            <select name="" id="first">
+            <option value=""> department </option>
+        </select>
+
+            <label for="second">Course:</label>
+          <select name="" id="second">
+            <option value=""> Select Option </option>
+        </select>
+
+
+            <label for="purpose">Purpose:</label>
+            <select id="purpose" name="purpose" required>
+                <option value="">Select Purpose</option>
+                <option value="Admission">Admission</option>
+                <option value="Enrollment">Enrollment</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="materials 1">Materials Provided:</label>
+            <input type="checkbox" id="materials 1" name="materials" value="Books"> Books
+            <input type="checkbox" id="materials 2" name="materials" value="Laptop"> Laptop
+            <input type="checkbox" id="materials 3" name="materials" value="ID Card"> ID Card
+
+            <button type="submit">Submit</button>
+        </form>
+        <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+    </div>
+    <script src="{% static 'js/app.js' %}"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+ body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select {
+            height: 40px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-btn {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }

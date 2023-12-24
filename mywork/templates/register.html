@@ -1,0 +1,39 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html >
+<head>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <title>Register</title>
+</head>
+<body>
+<div class="container">
+    <h1>Register</h1>
+
+    <form  action="{% url 'credentials:register' %}" method="post">
+        {% csrf_token %}
+
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+
+
+
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="cpassword">Confirm Password</label>
+                <input type="cpassword" id="cpassword" name="password1" required>
+
+            <button type="submit">Register</button>
+
+    </form>
+</div>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+</body>
+</html>
+
+
